@@ -3,9 +3,10 @@ import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api';
 import { createTodo } from './graphql/mutations';
 import { listTodos } from './graphql/queries';
-import './styles.css';
 import awsExports from './aws-exports';
 import { ListTodosQuery } from './API';
+import { ToDoList } from './toDoList';
+import { Container, Input, ButtonContainer, TitleContainer } from './Styles';
 Amplify.configure(awsExports);
 
 const initialState = { name: '', description: '' };
@@ -48,59 +49,35 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="container">
-      <h2 className="title">ToDo list</h2>
-      <input
+    <Container>
+      <TitleContainer>Todo list</TitleContainer>
+      <h1>Add A Todo</h1>
+      <Input
         onChange={(event) => setInput('name', event.target.value)}
-        style={styles.input}
+        className="input"
         value={formState.name}
         placeholder="Name"
       />
-      <input
+      <Input
         onChange={(event) => setInput('description', event.target.value)}
-        style={styles.input}
+        className="input"
         value={formState.description}
         placeholder="Description"
       />
-      <button className="button" onClick={addTodo}>
+      <ButtonContainer
+        variant="contained"
+        color="primary"
+        className="button"
+        onClick={addTodo}
+      >
         Create Todo
-      </button>
+      </ButtonContainer>
+      <h1>Your Todos</h1>
       {todos.map((todo, index) => (
-        <div className="todo" key={todo.id ? todo.id : index}>
-          <p className="todoName">{todo.name}</p>
-          <p className="toDoDescription">{todo.description}</p>
-        </div>
+        <ToDoList {...todo} key={todo.id ? todo.id : index} />
       ))}
-    </div>
+    </Container>
   );
-};
-
-const styles = {
-  container: {
-    width: 400,
-    margin: '0 auto',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  todo: { marginBottom: 15 },
-  input: {
-    border: 'none',
-    backgroundColor: '#ddd',
-    marginBottom: 10,
-    padding: 8,
-    fontSize: 18,
-  },
-  todoName: { fontSize: 20, fontWeight: 'bold' },
-  todoDescription: { marginBottom: 0 },
-  button: {
-    backgroundColor: 'black',
-    color: 'white',
-    outline: 'none',
-    fontSize: 18,
-    padding: '12px 0px',
-  },
 };
 
 export default App;
