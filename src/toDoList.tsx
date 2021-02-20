@@ -1,10 +1,6 @@
 import React, { ReactElement } from 'react';
-import {
-  ToDoName,
-  ToDoDescription,
-  ToDoListContainer,
-  ToDoListButtonContainer,
-} from './Styles';
+import { RemoveToDo } from './RemoveToDo';
+import { ToDoName, ToDoDescription, ToDoListContainer } from './Styles';
 
 interface Props {
   id: string;
@@ -12,12 +8,10 @@ interface Props {
   description?: string;
 }
 
-export const ToDoList = ({ name, description }: Props): ReactElement => (
+export const ToDoList = (toDo: Props): ReactElement => (
   <ToDoListContainer>
-    <ToDoName>{name}</ToDoName>
-    <ToDoDescription>{description}</ToDoDescription>
-    <ToDoListButtonContainer variant="contained" color="primary">
-      Complete
-    </ToDoListButtonContainer>
+    <ToDoName>{toDo.name}</ToDoName>
+    <ToDoDescription>{toDo.description}</ToDoDescription>
+    <RemoveToDo id={toDo.id} />
   </ToDoListContainer>
 );
