@@ -7,17 +7,18 @@ import awsExports from './aws-exports';
 import { ListTodosQuery } from './API';
 import { ToDoList } from './toDoList';
 import { Container, Input, ButtonContainer, TitleContainer } from './Styles';
-import { RemoveToDo } from './RemoveToDo';
+import { selectTodos } from './toDoSlice';
+import { useAppSelector } from './redux/store';
+
 Amplify.configure(awsExports);
-
 const initialState = { name: '', description: '' };
-
 const App: React.FC = () => {
+  const toDosRedux = useAppSelector(selectTodos);
   const [formState, setFormState] = useState(initialState);
   const [todos, setTodos] = useState<any[]>([]);
   useEffect(() => {
     fetchTodos();
-  }, [todos]);
+  }, []);
 
   function setInput(key: string, value: string) {
     setFormState({ ...formState, [key]: value });
