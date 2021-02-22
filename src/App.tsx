@@ -21,7 +21,6 @@ const App: React.FC = () => {
   }
 
   function addTodo() {
-    console.log(formState.name, formState.description);
     if (!formState.name || !formState.description) return;
     try {
       dispatch(addToDoThunk(formState.name, formState.description));
