@@ -1,6 +1,5 @@
 import API, { graphqlOperation } from '@aws-amplify/api';
 import React, { ReactElement } from 'react';
-import { Todo } from './API';
 import { deleteTodo } from './graphql/mutations';
 import { ToDoListButtonContainer } from './Styles';
 

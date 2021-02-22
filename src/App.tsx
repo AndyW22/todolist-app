@@ -1,10 +1,7 @@
-import { GraphQLResult } from '@aws-amplify/api';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import React, { useEffect, useState } from 'react';
-import { ListTodosQuery, Todo } from './API';
+import { Todo } from './API';
 import awsExports from './aws-exports';
-import { createTodo } from './graphql/mutations';
-import { listTodos } from './graphql/queries';
 import { useAppDispatch, useAppSelector } from './redux/store';
 import { ButtonContainer, Container, Input, TitleContainer } from './Styles';
 import { ToDoList } from './toDoList';
@@ -59,10 +56,9 @@ const App: React.FC = () => {
         Create Todo
       </ButtonContainer>
       <h1>Your Todos</h1>
-      {todos &&
-        todos.map((todo: Todo, index: number) => (
-          <ToDoList {...todo} key={todo.id ? todo.id : index} />
-        ))}
+      {todos.map((todo: Todo, index: number) => (
+        <ToDoList {...todo} key={todo.id ? todo.id : index} />
+      ))}
     </Container>
   );
 };
