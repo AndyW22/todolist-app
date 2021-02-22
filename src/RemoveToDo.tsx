@@ -1,10 +1,11 @@
-import React, { ReactElement } from 'react';
-import { ToDoListButtonContainer } from './Styles';
-import { deleteTodo } from './graphql/mutations';
 import API, { graphqlOperation } from '@aws-amplify/api';
+import React, { ReactElement } from 'react';
+import { Todo } from './API';
+import { deleteTodo } from './graphql/mutations';
+import { ToDoListButtonContainer } from './Styles';
 
 interface Props {
-  id: string;
+  id?: string;
 }
 
 export const RemoveToDo = (id: Props): ReactElement => {

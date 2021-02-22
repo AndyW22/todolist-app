@@ -1,50 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api';
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import React, { useEffect, useState } from 'react';
+import { ListTodosQuery, Todo } from './API';
+import awsExports from './aws-exports';
 import { createTodo } from './graphql/mutations';
 import { listTodos } from './graphql/queries';
-import awsExports from './aws-exports';
-import { ListTodosQuery } from './API';
+import { useAppDispatch, useAppSelector } from './redux/store';
+import { ButtonContainer, Container, Input, TitleContainer } from './Styles';
 import { ToDoList } from './toDoList';
-import { Container, Input, ButtonContainer, TitleContainer } from './Styles';
-import { selectTodos } from './toDoSlice';
-import { useAppSelector } from './redux/store';
+import { selectTodos, fetchToDos, addToDoThunk } from './toDoSlice';
 
 Amplify.configure(awsExports);
-const initialState = { name: '', description: '' };
 const App: React.FC = () => {
-  const toDosRedux = useAppSelector(selectTodos);
+  const dispatch = useAppDispatch();
+  const initialState = { name: '', description: '' };
   const [formState, setFormState] = useState(initialState);
-  const [todos, setTodos] = useState<any[]>([]);
   useEffect(() => {
-    fetchTodos();
+    dispatch(fetchToDos());
   }, []);
-
+  const todos: Todo[] = useAppSelector(selectTodos);
   function setInput(key: string, value: string) {
     setFormState({ ...formState, [key]: value });
   }
 
-  async function fetchTodos() {
+  function addTodo() {
+    console.log(formState.name, formState.description);
+    if (!formState.name || !formState.description) return;
     try {
-      const todoData = (await API.graphql(
-        graphqlOperation(listTodos),
-      )) as GraphQLResult<ListTodosQuery>;
-      const todos = todoData?.data?.listTodos?.items;
-      if (todos) {
-        setTodos(todos);
-      }
-    } catch (err) {
-      console.log('error fetching todos');
-    }
-  }
-
-  async function addTodo() {
-    try {
-      if (!formState.name || !formState.description) return;
-      const todo = { ...formState };
-      setTodos([...todos, todo]);
+      dispatch(addToDoThunk(formState.name, formState.description));
       setFormState(initialState);
-      await API.graphql(graphqlOperation(createTodo, { input: todo }));
     } catch (err) {
       console.log('error creating todo:', err);
     }
@@ -75,9 +59,10 @@ const App: React.FC = () => {
         Create Todo
       </ButtonContainer>
       <h1>Your Todos</h1>
-      {todos.map((todo, index) => (
-        <ToDoList {...todo} key={todo.id ? todo.id : index} />
-      ))}
+      {todos &&
+        todos.map((todo: Todo, index: number) => (
+          <ToDoList {...todo} key={todo.id ? todo.id : index} />
+        ))}
     </Container>
   );
 };
