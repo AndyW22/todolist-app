@@ -1,8 +1,8 @@
 import API, { graphqlOperation } from '@aws-amplify/api';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Button, Grid } from '@material-ui/core';
 import React, { ReactElement } from 'react';
+import CheckIcon from '@material-ui/icons/Check';
 import { deleteTodo } from './graphql/mutations';
-import { ToDoListButtonContainer } from './Styles';
 interface Props {
   id?: string;
 }
@@ -17,15 +17,16 @@ export const RemoveToDo = (id: Props): ReactElement => {
   };
   return (
     <Grid container justify="center">
-      <Box width={200} p={1}>
-        <ToDoListButtonContainer
+      <Box width={150} p={1}>
+        <Button
           fullWidth={true}
           variant="contained"
           color="primary"
           onClick={removeItem}
+          endIcon={<CheckIcon />}
         >
           Complete
-        </ToDoListButtonContainer>
+        </Button>
       </Box>
     </Grid>
   );

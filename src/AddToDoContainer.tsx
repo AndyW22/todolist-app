@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAppDispatch } from './redux/store';
 import { Input } from './Styles';
 import { addToDoThunk } from './toDoSlice';
+import AddIcon from '@material-ui/icons/Add';
 
 const AddToDoContainer: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -21,33 +22,37 @@ const AddToDoContainer: React.FC = () => {
       dispatch(addToDoThunk(formState.name, formState.description));
       setFormState(initialState);
     } catch (err) {
-      console.log('error creating todo:', err);
+      alert('error creating todo');
     }
   }
 
   return (
-    <Grid container justify="center">
-      <Input
-        onChange={(event) => setInput('name', event.target.value)}
-        value={formState.name}
-        placeholder="Name"
-      />
-      <Input
-        onChange={(event) => setInput('description', event.target.value)}
-        value={formState.description}
-        placeholder="Description"
-      />
-      <Box width={300} p={1}>
-        <Button
-          fullWidth={true}
-          variant="contained"
-          color="primary"
-          onClick={addTodo}
-        >
-          Create Todo
-        </Button>
-      </Box>
-    </Grid>
+    <div>
+      <h1>Add A Todo</h1>
+      <Grid container justify="center">
+        <Input
+          onChange={(event) => setInput('name', event.target.value)}
+          value={formState.name}
+          placeholder="Name"
+        />
+        <Input
+          onChange={(event) => setInput('description', event.target.value)}
+          value={formState.description}
+          placeholder="Description"
+        />
+        <Box width={300} p={1}>
+          <Button
+            fullWidth={true}
+            variant="contained"
+            color="primary"
+            onClick={addTodo}
+            endIcon={<AddIcon />}
+          >
+            Create Todo
+          </Button>
+        </Box>
+      </Grid>
+    </div>
   );
 };
 

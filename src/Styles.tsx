@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Button } from '@material-ui/core';
 
 export const TitleContainer = styled.h2`
   margin: auto;
@@ -9,7 +8,7 @@ export const TitleContainer = styled.h2`
 
 export const Container = styled.div`
   display: flex;
-  width: 600px;
+  width: 650px;
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;
@@ -41,17 +40,11 @@ export const ToDoDescription = styled.p`
 `;
 
 
-export const ToDoListButtonContainer = styled(Button)`
-  /* justify-content: center;
-  margin: 10px auto !important;
-  width: 30%;
-  padding: 0; */
-`;
 
 export const ToDoListContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #ddd;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 15px 0;
 `;
