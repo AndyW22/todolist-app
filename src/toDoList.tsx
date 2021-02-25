@@ -17,11 +17,11 @@ export const ToDoList = (): ReactElement => {
   return (
     <div>
       <h1>Your Todos</h1>
-      {todos.map((todo: Todo, index: number) => (
-        <ToDoListContainer key={todo.id ? todo.id : index}>
-          <ToDoName>{todo.name}</ToDoName>
-          <ToDoDescription>{todo.description}</ToDoDescription>
-          <RemoveToDo id={todo.id} />
+      {todos.map(({id, name, description}: Todo, index: number) => (
+        <ToDoListContainer key={id ? id : index}>
+          <ToDoName>{name}</ToDoName>
+          <ToDoDescription>{description}</ToDoDescription>
+          <RemoveToDo id={id} index={index} />
         </ToDoListContainer>
       ))}
     </div>

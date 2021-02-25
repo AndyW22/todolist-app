@@ -23,6 +23,9 @@ export const toDoSlice = createSlice({
       console.log(`error fetching todos: ${action} `);
       return state;
     },
+    removeToDo: (state, action) => {
+      state.splice(action.payload, 1);
+    },
   },
 });
 
@@ -31,6 +34,7 @@ export const {
   fetchToDosStart,
   fetchToDosSuccess,
   fetchToDosFailure,
+  removeToDo,
 } = toDoSlice.actions;
 
 export const fetchToDos = () => (dispatch: AppDispatch): void => {

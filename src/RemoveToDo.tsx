@@ -1,18 +1,24 @@
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { Box, Button, Grid } from '@material-ui/core';
 import React, { ReactElement } from 'react';
+import { useAppDispatch } from './redux/store';
 import CheckIcon from '@material-ui/icons/Check';
 import { deleteTodo } from './graphql/mutations';
+import { removeToDo } from './toDoSlice';
 interface Props {
   id?: string;
+  index: number;
 }
 
-export const RemoveToDo = (id: Props): ReactElement => {
+export const RemoveToDo = ({ id, index }: Props): ReactElement => {
+  const dispatch = useAppDispatch();
+
   const removeItem = async () => {
     try {
-      await API.graphql(graphqlOperation(deleteTodo, { input: id }));
+      await API.graphql(graphqlOperation(deleteTodo, { input: { id } }));
+      dispatch(removeToDo(index));
     } catch (error) {
-      console.log(error);
+      alert('Error removing todo');
     }
   };
   return (

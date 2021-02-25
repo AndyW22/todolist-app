@@ -1,6 +1,6 @@
 import Amplify from 'aws-amplify';
 import React from 'react';
-import AddToDoContainer from './AddToDoContainer';
+import AddToDoForm from './AddToDoForm';
 import awsExports from './aws-exports';
 import { Container, TitleContainer } from './Styles';
 import { ToDoList } from './toDoList';
@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <Container>
       <TitleContainer>Todo list</TitleContainer>
-      <AddToDoContainer />
+      <AddToDoForm />
       <ToDoList />
     </Container>
   );
