@@ -22,6 +22,8 @@ export const Input = styled.input`
   background-color: #ddd;
   margin-bottom: 10px;
   padding: 8px;
+  width: 100%;
+  border-radius: 5px;
   font-size: 18px;
 `;
 
@@ -38,16 +40,12 @@ export const ToDoDescription = styled.p`
   text-align: center;
 `;
 
-export const ButtonContainer = styled(Button)`
-  justify-content: center;
-  margin: 10px auto !important;
-  width: 50%;
-`;
+
 export const ToDoListButtonContainer = styled(Button)`
-  justify-content: center;
+  /* justify-content: center;
   margin: 10px auto !important;
   width: 30%;
-  padding: 0;
+  padding: 0; */
 `;
 
 export const ToDoListContainer = styled.div`
