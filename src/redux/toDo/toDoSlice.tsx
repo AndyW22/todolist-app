@@ -6,14 +6,7 @@ import { addToDo, fetchToDos, removeToDo } from './toDoThunks';
 export const toDoSlice = createSlice({
   name: 'todos',
   initialState: [] as Todo[],
-  reducers: {
-    addToDo: (state, action) => {
-      state.push({ ...action.payload });
-    },
-    removeToDo: (state, action) => {
-      state.splice(action.payload, 1);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchToDos.fulfilled, (state, action: any) => {
       return action.payload.data?.listTodos?.items;
@@ -26,7 +19,6 @@ export const toDoSlice = createSlice({
     });
   },
 });
-
 
 export const selectTodos = (state: RootState): Todo[] => state.todos;
 
