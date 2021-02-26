@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '../../API';
 import { RootState } from '../store';
-import { addToDo, fetchToDos } from './toDoThunks';
+import { addToDo, fetchToDos, removeToDo } from './toDoThunks';
 
 export const toDoSlice = createSlice({
   name: 'todos',
@@ -21,10 +21,12 @@ export const toDoSlice = createSlice({
     builder.addCase(addToDo.fulfilled, (state, action: any) => {
       state.push({ ...action.payload.data?.createTodo });
     });
+    builder.addCase(removeToDo.fulfilled, (state, action) => {
+      state.splice(action.payload, 1);
+    });
   },
 });
 
-export const { removeToDo } = toDoSlice.actions;
 
 export const selectTodos = (state: RootState): Todo[] => state.todos;
 
