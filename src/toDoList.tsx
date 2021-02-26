@@ -1,10 +1,10 @@
 import React, { ReactElement, useEffect } from 'react';
-import { RemoveToDo } from './RemoveToDo';
-import { useAppDispatch, useAppSelector } from './redux/store';
-import { fetchToDos, selectTodos } from './toDoSlice';
-
-import { ToDoName, ToDoDescription, ToDoListContainer } from './Styles';
 import { Todo } from './API';
+import { useAppDispatch, useAppSelector } from './redux/store';
+import { selectTodos } from './redux/toDo/toDoSlice';
+import { fetchToDos } from './redux/toDo/toDoThunks';
+import { RemoveToDo } from './RemoveToDo';
+import { ToDoDescription, ToDoListContainer, ToDoName } from './Styles';
 
 export const ToDoList = (): ReactElement => {
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ export const ToDoList = (): ReactElement => {
   return (
     <div>
       <h1>Your Todos</h1>
-      {todos.map(({id, name, description}: Todo, index: number) => (
+      {todos.map(({ id, name, description }: Todo, index: number) => (
         <ToDoListContainer key={id ? id : index}>
           <ToDoName>{name}</ToDoName>
           <ToDoDescription>{description}</ToDoDescription>

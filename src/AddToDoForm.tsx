@@ -1,9 +1,9 @@
 import { Box, Button, Grid } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import React, { useState } from 'react';
 import { useAppDispatch } from './redux/store';
 import { Input } from './Styles';
-import { addToDoThunk } from './toDoSlice';
-import AddIcon from '@material-ui/icons/Add';
+import { addToDo } from './redux/toDo/toDoThunks';
 
 const AddToDoContainer: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +19,9 @@ const AddToDoContainer: React.FC = () => {
       return;
     }
     try {
-      dispatch(addToDoThunk(formState.name, formState.description));
+      dispatch(
+        addToDo({ name: formState.name, description: formState.description }),
+      );
       setFormState(initialState);
     } catch (err) {
       alert('error creating todo');

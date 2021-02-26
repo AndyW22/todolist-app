@@ -1,10 +1,10 @@
 import API, { graphqlOperation } from '@aws-amplify/api';
 import { Box, Button, Grid } from '@material-ui/core';
-import React, { ReactElement } from 'react';
-import { useAppDispatch } from './redux/store';
 import CheckIcon from '@material-ui/icons/Check';
+import React, { ReactElement } from 'react';
 import { deleteTodo } from './graphql/mutations';
-import { removeToDo } from './toDoSlice';
+import { useAppDispatch } from './redux/store';
+import { removeToDo } from './redux/toDo/toDoSlice';
 interface Props {
   id?: string;
   index: number;

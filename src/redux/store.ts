@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import logger from 'redux-logger';
-import toDosReducer from '../toDoSlice';
+import toDosReducer from './toDo/toDoSlice';
 
 export const store = configureStore({
   reducer: {
