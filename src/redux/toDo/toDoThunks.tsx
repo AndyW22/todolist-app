@@ -3,9 +3,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API, graphqlOperation } from 'aws-amplify';
 import {
   CreateTodoMutation,
-  DeleteTodoInput,
   ListTodosQuery,
   CreateTodoInput,
+  DeleteTodoMutation,
 } from '../../API';
 import { createTodo, deleteTodo } from '../../graphql/mutations';
 import { listTodos } from '../../graphql/queries';
@@ -18,7 +18,7 @@ export const fetchToDos = createAsyncThunk(
       const todoData = (await API.graphql(
         graphqlOperation(listTodos),
       )) as GraphQLResult<ListTodosQuery>;
-      return todoData;
+      return todoData.data?.listTodos;
     } catch (err) {
       return thunkApi.rejectWithValue(err);
     }
@@ -27,10 +27,7 @@ export const fetchToDos = createAsyncThunk(
 
 export const addToDo = createAsyncThunk(
   'todos/addToDo',
-  async (
-    action: CreateTodoInput,
-    thunkApi,
-  ) => {
+  async (action: CreateTodoInput, thunkApi) => {
     try {
       const todoresult = (await API.graphql(
         graphqlOperation(createTodo, { input: action }),
@@ -48,7 +45,7 @@ export const removeToDo = createAsyncThunk(
     try {
       (await API.graphql(
         graphqlOperation(deleteTodo, { input: { id: action.id } }),
-      )) as GraphQLResult<DeleteTodoInput>;
+      )) as GraphQLResult<DeleteTodoMutation>;
       return action.index;
     } catch (err) {
       return thunkApi.rejectWithValue(err);

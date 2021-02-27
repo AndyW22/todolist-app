@@ -8,11 +8,11 @@ export const toDoSlice = createSlice({
   initialState: [] as Todo[],
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchToDos.fulfilled, (state, action: any) => {
-      return action.payload.data?.listTodos?.items;
+    builder.addCase(fetchToDos.fulfilled, (state, action) => {
+      return action.payload?.items as Todo[];
     });
-    builder.addCase(addToDo.fulfilled, (state, action: any) => {
-      state.push({ ...action.payload.data?.createTodo });
+    builder.addCase(addToDo.fulfilled, (state, action) => {
+      state.push({ ...action.payload.data?.createTodo } as Todo);
     });
     builder.addCase(removeToDo.fulfilled, (state, action) => {
       state.splice(action.payload, 1);
