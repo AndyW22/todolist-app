@@ -22,14 +22,14 @@ const App: React.FC = () => {
           formFields={[
             {
               type: 'email',
-              label: 'Custom email Label',
-              placeholder: 'custom email placeholder',
+              label: 'Email',
+              placeholder: 'Email',
               required: true,
             },
             {
               type: 'password',
-              label: 'Custom Password Label',
-              placeholder: 'custom password placeholder',
+              label: 'Email',
+              placeholder: 'Password',
               required: true,
             },
           ]}
