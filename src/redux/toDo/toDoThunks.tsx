@@ -1,7 +1,12 @@
 import { GraphQLResult } from '@aws-amplify/api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API, graphqlOperation } from 'aws-amplify';
-import { CreateTodoMutation, DeleteTodoInput, ListTodosQuery } from '../../API';
+import {
+  CreateTodoMutation,
+  DeleteTodoInput,
+  ListTodosQuery,
+  CreateTodoInput,
+} from '../../API';
 import { createTodo, deleteTodo } from '../../graphql/mutations';
 import { listTodos } from '../../graphql/queries';
 import { RemoveToDoProps } from '../../RemoveToDo';
@@ -23,10 +28,7 @@ export const fetchToDos = createAsyncThunk(
 export const addToDo = createAsyncThunk(
   'todos/addToDo',
   async (
-    action: {
-      name: string;
-      description: string;
-    },
+    action: CreateTodoInput,
     thunkApi,
   ) => {
     try {

@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 import { useAppDispatch } from './redux/store';
 import { Input } from './Styles';
 import { addToDo } from './redux/toDo/toDoThunks';
+import { CreateTodoInput } from './API';
 
 const AddToDoContainer: React.FC = () => {
   const dispatch = useAppDispatch();
-  const initialState = { name: '', description: '' };
+  const initialState = { name: '', description: '' } as CreateTodoInput;
   const [formState, setFormState] = useState(initialState);
   function setInput(key: string, value: string) {
     setFormState({ ...formState, [key]: value });
@@ -18,9 +19,13 @@ const AddToDoContainer: React.FC = () => {
       alert('Todo must have a name');
       return;
     }
+
     try {
       dispatch(
-        addToDo({ name: formState.name, description: formState.description }),
+        addToDo({
+          name: formState.name,
+          description: formState.description,
+        }),
       );
       setFormState(initialState);
     } catch (err) {
@@ -39,7 +44,7 @@ const AddToDoContainer: React.FC = () => {
         />
         <Input
           onChange={(event) => setInput('description', event.target.value)}
-          value={formState.description}
+          value={formState.description as string}
           placeholder="Description"
         />
         <Box width={300} p={1}>
