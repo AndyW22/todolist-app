@@ -10,6 +10,11 @@
       "StackName": "amplify-todolist-dev-90442",
       "StackId": "arn:aws:cloudformation:eu-west-2:043701460585:stack/amplify-todolist-dev-90442/58f792f0-71c8-11eb-9bfd-061b8f928f68",
       "AmplifyAppId": "dryxabv9qc6ey"
+    },
+    "categories": {
+      "auth": {
+        "todolist": {}
+      }
     }
   }
 }
