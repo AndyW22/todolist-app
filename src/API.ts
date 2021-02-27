@@ -63,6 +63,7 @@ export type Todo = {
   description?: string | null,
   createdAt?: string,
   updatedAt?: string,
+  owner?: string | null,
 };
 
 export type UpdateTodoInput = {
@@ -119,6 +120,7 @@ export type CreateTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -135,6 +137,7 @@ export type UpdateTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -151,6 +154,7 @@ export type DeleteTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -166,6 +170,7 @@ export type GetTodoQuery = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -185,9 +190,14 @@ export type ListTodosQuery = {
       description?: string | null,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
+};
+
+export type OnCreateTodoSubscriptionVariables = {
+  owner?: string,
 };
 
 export type OnCreateTodoSubscription = {
@@ -198,7 +208,12 @@ export type OnCreateTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
+};
+
+export type OnUpdateTodoSubscriptionVariables = {
+  owner?: string,
 };
 
 export type OnUpdateTodoSubscription = {
@@ -209,7 +224,12 @@ export type OnUpdateTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
+};
+
+export type OnDeleteTodoSubscriptionVariables = {
+  owner?: string,
 };
 
 export type OnDeleteTodoSubscription = {
@@ -220,5 +240,6 @@ export type OnDeleteTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };

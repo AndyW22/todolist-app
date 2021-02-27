@@ -1,6 +1,6 @@
 projects:
-  todolistapi:
-    schemaPath: amplify/backend/api/todolistapi/build/schema.graphql
+  todolist:
+    schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.ts
     excludes:
