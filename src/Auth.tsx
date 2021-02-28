@@ -4,9 +4,9 @@ import {
   AmplifySignOut,
   AmplifySignUp,
 } from '@aws-amplify/ui-react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-const Auth: React.FC = () => (
+const Auth = (): ReactElement => (
   <AmplifyAuthenticator usernameAlias="email">
     <AmplifySignUp
       slot="sign-up"

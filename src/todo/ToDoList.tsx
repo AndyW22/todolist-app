@@ -3,7 +3,7 @@ import { Todo } from '../API';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { selectTodos } from '../redux/toDo/ToDoSlice';
 import { fetchToDos } from '../redux/toDo/ToDoThunks';
-import ToDoItem from './ToDoItem';
+import { ToDoItem } from './ToDoItem';
 
 export const ToDoList = (): ReactElement => {
   const dispatch = useAppDispatch();

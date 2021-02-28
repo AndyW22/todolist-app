@@ -1,8 +1,8 @@
 import { AmplifySignOut } from '@aws-amplify/ui-react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { HeaderContainer } from './Styles';
 
-const Header: React.FC = () => (
+const Header = (): ReactElement => (
   <HeaderContainer>
     Todo list
     <AmplifySignOut />
