@@ -1,4 +1,11 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export default createGlobalStyle`
+  body {
+    font-family: Roboto;
+    font-size: 20px;
+  }
+`;
 
 export const HeaderContainer = styled.div`
   display: flex;

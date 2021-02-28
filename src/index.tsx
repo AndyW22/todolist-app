@@ -5,7 +5,7 @@ import Amplify from 'aws-amplify';
 import awsExports from './aws-exports';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import GlobalStyle from './globalStyles';
+import GlobalStyle from './Styles';
 
 Amplify.configure(awsExports);
 
