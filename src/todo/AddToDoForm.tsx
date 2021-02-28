@@ -1,10 +1,10 @@
 import { Box, Button, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useState } from 'react';
-import { useAppDispatch } from './redux/store';
-import { Input } from './Styles';
-import { addToDo } from './redux/toDo/toDoThunks';
-import { CreateTodoInput } from './API';
+import { useAppDispatch } from '../redux/store';
+import { Input } from '../Styles';
+import { addToDo } from '../redux/toDo/ToDoThunks';
+import { CreateTodoInput } from '../API';
 
 const AddToDoContainer: React.FC = () => {
   const dispatch = useAppDispatch();

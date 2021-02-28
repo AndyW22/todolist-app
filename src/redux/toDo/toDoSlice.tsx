@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '../../API';
 import { RootState } from '../store';
-import { addToDo, fetchToDos, removeToDo } from './toDoThunks';
+import { addToDo, fetchToDos, removeToDo } from './ToDoThunks';
 
 export const toDoSlice = createSlice({
   name: 'todos',

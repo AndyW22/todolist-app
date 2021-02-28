@@ -1,8 +1,8 @@
 import { Box, Button, Grid } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import React, { ReactElement } from 'react';
-import { useAppDispatch } from './redux/store';
-import { removeToDo } from './redux/toDo/toDoThunks';
+import { useAppDispatch } from '../redux/store';
+import { removeToDo } from '../redux/toDo/ToDoThunks';
 
 export interface RemoveToDoProps {
   id?: string;

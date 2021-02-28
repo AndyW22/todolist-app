@@ -9,7 +9,7 @@ import {
 } from '../../API';
 import { createTodo, deleteTodo } from '../../graphql/mutations';
 import { listTodos } from '../../graphql/queries';
-import { RemoveToDoProps } from '../../RemoveToDo';
+import { RemoveToDoProps } from '../../todo/RemoveToDo';
 
 export const fetchToDos = createAsyncThunk(
   'todos/fetch',

@@ -5,11 +5,11 @@ import {
 } from '@aws-amplify/ui-react';
 import Amplify from 'aws-amplify';
 import React from 'react';
-import AddToDoForm from './AddToDoForm';
+import AddToDoForm from './todo/AddToDoForm';
 import awsExports from './aws-exports';
 import Header from './Nav';
 import { Container } from './Styles';
-import { ToDoList } from './toDoList';
+import { ToDoList } from './todo/ToDoList';
 
 Amplify.configure(awsExports);
 const App: React.FC = () => {
