@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const TitleContainer = styled.h2`
-  margin: auto;
-  padding-bottom: 15px;
-  font-size: 50px;
+export const HeaderContainer = styled.div`
+  display: flex;
+  margin: 0;
+  padding: 15px 10px;
+  align-items: center;
+  font-size: 70px;
+  font-weight: bold;
+  justify-content: space-between;
 `;
 
 export const Container = styled.div`
@@ -13,7 +17,12 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 70px;
-  font-family: Roboto;
+`;
+
+export const SignOutContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Input = styled.input`
@@ -35,11 +44,8 @@ export const ToDoName = styled.p`
 
 export const ToDoDescription = styled.p`
   margin: 10px 0;
-  font-size: 20px;
   text-align: center;
 `;
-
-
 
 export const ToDoListContainer = styled.div`
   display: flex;
