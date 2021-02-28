@@ -20,7 +20,7 @@ const Auth: React.FC = () => (
         },
         {
           type: 'password',
-          label: 'Email',
+          label: 'Password',
           placeholder: 'Password',
           required: true,
         },

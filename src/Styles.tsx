@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
 export const HeaderContainer = styled.div`
   display: flex;
-  padding: 10px 10px;
+  padding: 15px;
   align-items: end;
   font-size: 60px;
   font-weight: bold;
