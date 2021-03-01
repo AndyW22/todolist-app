@@ -7,6 +7,11 @@ export default createGlobalStyle`
   }
 `;
 
+export const OptionsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const HeaderContainer = styled.div`
   display: flex;
   padding: 15px;
