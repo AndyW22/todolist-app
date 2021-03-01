@@ -11,9 +11,12 @@ import Header from './Nav';
 import { Container } from './Styles';
 import { ToDoList } from './todo/ToDoList';
 import { useAuth } from './Auth';
+import { useAppSelector } from './redux/store';
+import { selectCurrentUser } from './redux/user/userSlice';
 Amplify.configure(awsExports);
 
 export const App = (): ReactElement => {
+  const currentUser = useAppSelector(selectCurrentUser);
   useAuth();
   return (
     <>
@@ -38,10 +41,12 @@ export const App = (): ReactElement => {
           ]}
         />
         <AmplifySignIn slot="sign-in" usernameAlias="email" />
-        <Container>
-          <AddToDoForm />
-          <ToDoList />
-        </Container>
+        {currentUser && (
+          <Container>
+            <AddToDoForm />
+            <ToDoList />
+          </Container>
+        )}
       </AmplifyAuthenticator>
     </>
   );
