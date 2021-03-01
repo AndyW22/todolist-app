@@ -1,13 +1,28 @@
-import { AmplifySignOut } from '@aws-amplify/ui-react';
 import React, { ReactElement } from 'react';
-import { HeaderContainer, OptionsContainer } from './Styles';
-const Header = (): ReactElement => (
-  <HeaderContainer>
-    Todo list
-    <OptionsContainer>
-      <AmplifySignOut />
-    </OptionsContainer>
-  </HeaderContainer>
-);
+import { useAppSelector } from './redux/store';
+import { selectCurrentUser } from './redux/user/userSlice';
+import { HeaderContainer, OptionsContainer, SignOut, Text } from './Styles';
+
+const Header = (): ReactElement => {
+  const currentUser = useAppSelector(selectCurrentUser);
+
+  return (
+    <HeaderContainer>
+      Todo list
+      <OptionsContainer>
+        {currentUser ? (
+          <>
+            <Text>
+              Signed in as <strong>{currentUser?.email}</strong>
+            </Text>
+            <SignOut />
+          </>
+        ) : (
+          <Text>Not currently signed in</Text>
+        )}
+      </OptionsContainer>
+    </HeaderContainer>
+  );
+};
 
 export default Header;

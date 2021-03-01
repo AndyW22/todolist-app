@@ -1,3 +1,4 @@
+import { AmplifySignOut } from '@aws-amplify/ui-react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
@@ -10,15 +11,31 @@ export default createGlobalStyle`
 export const OptionsContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const HeaderContainer = styled.div`
   display: flex;
   padding: 15px;
-  align-items: end;
   font-size: 60px;
   font-weight: bold;
   justify-content: space-between;
+`;
+
+export const SignOut = styled(AmplifySignOut)`
+  transform: translateY(-5px);
+`;
+
+export const Text = styled.h1`
+  font-size: 20px;
+  margin: 0 25px;
+  font-weight: 300;
+`;
+
+export const Text2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Container = styled.div`
