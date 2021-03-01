@@ -5,17 +5,16 @@ import { ToDoDescription, ToDoListContainer, ToDoName } from '../Styles';
 
 interface ToDoItemProps {
   todo: Todo;
-  key: number;
+  index: number;
 }
 
 export const ToDoItem = ({
   todo: { id, name, description },
-  key,
+  index,
 }: ToDoItemProps): ReactElement => (
-  <ToDoListContainer key={id ? id : key}>
+  <ToDoListContainer key={id ? id : index}>
     <ToDoName>{name}</ToDoName>
     <ToDoDescription>{description}</ToDoDescription>
-    <RemoveToDo id={id} index={key} />
+    <RemoveToDo id={id} key={index} index={index} />
   </ToDoListContainer>
 );
-
