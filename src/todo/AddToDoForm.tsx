@@ -3,7 +3,7 @@ import AddIcon from '@material-ui/icons/Add';
 import React, { ReactElement, useState } from 'react';
 import { useAppDispatch } from '../redux/store';
 import { Input } from '../Styles';
-import { addToDo } from '../redux/toDo/ToDoThunks';
+import { addToDo } from '../redux/toDo/toDoThunks';
 import { CreateTodoInput } from '../API';
 
 export const AddToDoForm = (): ReactElement => {

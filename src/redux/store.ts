@@ -1,7 +1,8 @@
 import { configureStore, Middleware } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import logger from 'redux-logger';
-import toDosReducer from './toDo/ToDoSlice';
+import toDosReducer from './toDo/toDoSlice';
+import userReducer from './user/userSlice';
 
 const middlewares: Middleware[] = [];
 
@@ -12,6 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 export const store = configureStore({
   reducer: {
     todos: toDosReducer,
+    user: userReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(...middlewares),

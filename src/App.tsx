@@ -10,9 +10,11 @@ import awsExports from './aws-exports';
 import Header from './Nav';
 import { Container } from './Styles';
 import { ToDoList } from './todo/ToDoList';
-
+import { useAuth } from './Auth';
 Amplify.configure(awsExports);
+
 export const App = (): ReactElement => {
+  useAuth();
   return (
     <>
       <Header />
