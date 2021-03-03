@@ -10,7 +10,7 @@ import awsExports from './aws-exports';
 import Header from './Nav';
 import { Container } from './Styles';
 import { ToDoList } from './todo/ToDoList';
-import { useAuth } from './Auth';
+import { useAuth } from './useAuth';
 import { useAppSelector } from './redux/store';
 import { selectCurrentUser } from './redux/user/userSlice';
 Amplify.configure(awsExports);

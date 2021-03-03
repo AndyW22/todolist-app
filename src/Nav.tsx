@@ -13,7 +13,7 @@ const Header = (): ReactElement => {
         {currentUser ? (
           <>
             <Text>
-              Signed in as <strong>{currentUser?.email}</strong>
+              Signed in as <strong>{currentUser.email}</strong>
             </Text>
             <SignOut />
           </>
