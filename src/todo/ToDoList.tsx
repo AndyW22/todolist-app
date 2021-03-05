@@ -5,7 +5,7 @@ import { selectTodos } from '../redux/toDo/toDoSlice';
 import { fetchToDos } from '../redux/toDo/toDoThunks';
 import { ToDoItem } from './ToDoItem';
 
-export const ToDoList = (): ReactElement => {
+const ToDoList = (): ReactElement => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -22,3 +22,5 @@ export const ToDoList = (): ReactElement => {
     </>
   );
 };
+
+export default ToDoList;

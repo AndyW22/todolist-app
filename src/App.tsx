@@ -1,19 +1,20 @@
 import Amplify from 'aws-amplify';
-import React, { ReactElement } from 'react';
-import { AddToDoForm } from './todo/AddToDoForm';
+import React, { lazy, ReactElement, Suspense } from 'react';
 import awsExports from './aws-exports';
+import { Container, Spinner } from './Styles';
 import Header from './Nav';
-import { Container } from './Styles';
-import { ToDoList } from './todo/ToDoList';
-import { Auth } from './Auth';
 import { useAppSelector } from './redux/store';
 import { selectCurrentUser } from './redux/user/userSlice';
+const Auth = lazy(() => import('./Auth'));
+const AddToDoForm = lazy(() => import('./todo/AddToDoForm'));
+const ToDoList = lazy(() => import('./todo/ToDoList'));
+
 Amplify.configure(awsExports);
 
 export const App = (): ReactElement => {
   const currentUser = useAppSelector(selectCurrentUser);
   return (
-    <>
+    <Suspense fallback={<Spinner />}>
       <Header />
       <Auth />
       {currentUser && (
@@ -22,7 +23,7 @@ export const App = (): ReactElement => {
           <ToDoList />
         </Container>
       )}
-    </>
+    </Suspense>
   );
 };
 

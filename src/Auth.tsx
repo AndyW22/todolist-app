@@ -2,9 +2,13 @@ import React, { ReactElement, useEffect } from 'react';
 import { useAppDispatch } from './redux/store';
 import { onAuthUIStateChange, AuthState } from '@aws-amplify/ui-components';
 import { signIn, signOut } from './redux/user/userSlice';
-import { AmplifyAuthenticator, AmplifySignIn, AmplifySignUp } from '@aws-amplify/ui-react';
+import {
+  AmplifyAuthenticator,
+  AmplifySignIn,
+  AmplifySignUp,
+} from '@aws-amplify/ui-react';
 
-export const Auth = (): ReactElement => {
+const Auth = (): ReactElement => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     onAuthUIStateChange((nextAuthState, authData: any) => {
@@ -15,7 +19,6 @@ export const Auth = (): ReactElement => {
       }
     });
   }, []);
-
 
   return (
     <AmplifyAuthenticator usernameAlias="email">
@@ -41,3 +44,5 @@ export const Auth = (): ReactElement => {
     </AmplifyAuthenticator>
   );
 };
+
+export default Auth;

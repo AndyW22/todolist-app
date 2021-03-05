@@ -1,11 +1,17 @@
 import { AmplifySignOut } from '@aws-amplify/ui-react';
+import { CircularProgress } from '@material-ui/core';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   body {
     font-family: Roboto;
     font-size: 20px;
+    margin: 0;
   }
+
+  * {
+    box-sizing: border-box;
+    }
 `;
 
 export const OptionsContainer = styled.div`
@@ -17,9 +23,22 @@ export const OptionsContainer = styled.div`
 export const HeaderContainer = styled.div`
   display: flex;
   padding: 15px;
+  background-color: #ddd;
   font-size: 60px;
   font-weight: bold;
   justify-content: space-between;
+
+  @media only screen and (max-width: 1000px) {
+    font-size: 30px;
+    align-items: center;
+  }
+`;
+
+export const Spinner = styled(CircularProgress)`
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SignOut = styled(AmplifySignOut)`
@@ -32,11 +51,6 @@ export const Text = styled.h1`
   font-weight: 300;
 `;
 
-export const Text2 = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export const Container = styled.div`
   display: flex;

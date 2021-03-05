@@ -6,7 +6,7 @@ import { Input } from '../Styles';
 import { addToDo } from '../redux/toDo/toDoThunks';
 import { CreateTodoInput } from '../API';
 
-export const AddToDoForm = (): ReactElement => {
+const AddToDoForm = (): ReactElement => {
   const dispatch = useAppDispatch();
   const initialState = { name: '', description: '' } as CreateTodoInput;
   const [formState, setFormState] = useState(initialState);
@@ -63,3 +63,4 @@ export const AddToDoForm = (): ReactElement => {
   );
 };
 
+export default AddToDoForm;

@@ -8,7 +8,7 @@ const Header = (): ReactElement => {
 
   return (
     <HeaderContainer>
-      Todo list
+      Todo List
       <OptionsContainer>
         {currentUser ? (
           <>
