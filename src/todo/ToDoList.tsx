@@ -14,11 +14,11 @@ export const ToDoList = (): ReactElement => {
   const todos: Todo[] = useAppSelector(selectTodos);
 
   return (
-    <div>
+    <>
       <h1>Your Todos</h1>
       {todos.map((todo: Todo, index: number) => (
         <ToDoItem key={index} index={index} todo={todo} />
       ))}
-    </div>
+    </>
   );
 };
