@@ -7,6 +7,8 @@ export default createGlobalStyle`
     font-family: Roboto;
     font-size: 20px;
     margin: 0;
+    --amplify-primary-color: rgba(0, 131, 253, 1);
+    --amplify-primary-shade: rgba(0, 131, 253, 1);
   }
 
   * {
@@ -50,7 +52,6 @@ export const Text = styled.h1`
   margin: 0 25px;
   font-weight: 300;
 `;
-
 
 export const Container = styled.div`
   display: flex;
