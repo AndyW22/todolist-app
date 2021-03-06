@@ -3,14 +3,18 @@ import { Todo } from '../API';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { selectTodos } from '../redux/toDo/toDoSlice';
 import { fetchToDos } from '../redux/toDo/toDoThunks';
+import { selectCurrentUser } from '../redux/user/userSlice';
 import { ToDoItem } from './ToDoItem';
 
 const ToDoList = (): ReactElement => {
   const dispatch = useAppDispatch();
+  const currentUser = useAppSelector(selectCurrentUser);
 
   useEffect(() => {
-    dispatch(fetchToDos());
-  }, []);
+    if (currentUser) {
+      dispatch(fetchToDos());
+    }
+  }, [currentUser]);
   const todos: Todo[] = useAppSelector(selectTodos);
 
   return (

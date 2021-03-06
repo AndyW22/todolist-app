@@ -7,8 +7,9 @@ import {
   AmplifySignIn,
   AmplifySignUp,
 } from '@aws-amplify/ui-react';
+import { ToDoListWrapper } from './todo/ToDoListWrapper';
 
-const Auth = (): ReactElement => {
+const AuthWrapper = (): ReactElement => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     onAuthUIStateChange((nextAuthState, authData: any) => {
@@ -40,9 +41,10 @@ const Auth = (): ReactElement => {
           },
         ]}
       />
+      <ToDoListWrapper />
       <AmplifySignIn slot="sign-in" usernameAlias="email" />
     </AmplifyAuthenticator>
   );
 };
 
-export default Auth;
+export default AuthWrapper;
