@@ -1,9 +1,10 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement, Suspense, useEffect } from 'react';
 import { Todo } from '../API';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 import { selectTodos } from '../redux/toDo/toDoSlice';
 import { fetchToDos } from '../redux/toDo/toDoThunks';
 import { selectCurrentUser } from '../redux/user/userSlice';
+import { Spinner } from '../Styles';
 import { ToDoItem } from './ToDoItem';
 
 const ToDoList = (): ReactElement => {
@@ -20,9 +21,11 @@ const ToDoList = (): ReactElement => {
   return (
     <>
       <h1>Your Todos</h1>
-      {todos.map((todo: Todo, index: number) => (
-        <ToDoItem key={index} index={index} todo={todo} />
-      ))}
+      <Suspense fallback={<Spinner />}>
+        {todos.map((todo: Todo, index: number) => (
+          <ToDoItem key={index} index={index} todo={todo} />
+        ))}
+      </Suspense>
     </>
   );
 };
