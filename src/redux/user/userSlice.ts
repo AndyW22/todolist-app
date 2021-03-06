@@ -21,5 +21,4 @@ export const selectCurrentUser = (
   state: RootState,
 ): CognitoUserInterface | null => state.user;
 
-
 export default userSlice.reducer;

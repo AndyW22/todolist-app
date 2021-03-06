@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Todo } from '../../API';
 import { RootState } from '../store';
+import { userSlice } from '../user/userSlice';
 import { addToDo, fetchToDos, removeToDo } from './toDoThunks';
 
 export const toDoSlice = createSlice({
@@ -16,6 +17,9 @@ export const toDoSlice = createSlice({
     });
     builder.addCase(removeToDo.fulfilled, (state, action) => {
       state.splice(action.payload, 1);
+    });
+    builder.addCase(userSlice.actions.signOut, () => {
+      return [];
     });
   },
 });
