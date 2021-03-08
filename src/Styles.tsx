@@ -9,6 +9,7 @@ export default createGlobalStyle`
     margin: 0;
     --amplify-primary-color: rgba(0, 131, 253, 1);
     --amplify-primary-shade: rgba(0, 131, 253, 1);
+    --amplify-primary-tint: rgba(0, 131, 253, 1);
   }
 
   * {
