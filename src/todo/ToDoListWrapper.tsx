@@ -1,11 +1,13 @@
 import { Container } from '../Styles';
-import React, { lazy, ReactElement } from 'react';
-const AddToDoForm = lazy(() => import('./AddToDoForm'));
-const ToDoList = lazy(() => import('./ToDoList'));
+import React, { ReactElement } from 'react';
+import AddToDoForm from './AddToDoForm';
+import { ToDoList } from './ToDoList';
 
-export const ToDoListWrapper = (): ReactElement => (
+const ToDoListWrapper = (): ReactElement => (
   <Container>
     <AddToDoForm />
-      <ToDoList />
+    <ToDoList />
   </Container>
 );
+
+export default ToDoListWrapper;

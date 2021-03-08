@@ -11,8 +11,8 @@ import {
   AmplifySignIn,
   AmplifySignUp,
 } from '@aws-amplify/ui-react';
-import { ToDoListWrapper } from './todo/ToDoListWrapper';
 import { Spinner } from './Styles';
+const ToDoListWrapper = React.lazy(() => import('./todo/ToDoListWrapper'));
 
 const AuthWrapper = (): ReactElement => {
   const dispatch = useAppDispatch();

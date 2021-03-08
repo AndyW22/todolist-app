@@ -23,12 +23,9 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Spinner = styled(CircularProgress)`
-  display: flex;
   position: absolute;
-  justify-content: center;
-  align-items: center;
-  display: block;
-  margin: 0 auto;
+  top: 50%;
+  left: 50%;
 `;
 
 export const SignOut = styled(AmplifySignOut)`
