@@ -1,4 +1,6 @@
-import { AmplifySignOut } from '@aws-amplify/ui-react';
+import {
+  AmplifySignOut,
+} from '@aws-amplify/ui-react';
 import { CircularProgress } from '@material-ui/core';
 import styled from 'styled-components';
 

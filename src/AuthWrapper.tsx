@@ -6,12 +6,8 @@ import {
   CognitoUserInterface,
 } from '@aws-amplify/ui-components';
 import { selectCurrentUser, signIn, signOut } from './redux/user/userSlice';
-import {
-  AmplifyAuthenticator,
-  AmplifySignIn,
-  AmplifySignUp,
-} from '@aws-amplify/ui-react';
-import { Spinner } from './Styles';
+import { AmplifyAuthenticator, AmplifySignIn, AmplifySignUp } from '@aws-amplify/ui-react';
+import {  Spinner } from './Styles';
 const ToDoListWrapper = React.lazy(() => import('./todo/ToDoListWrapper'));
 
 const AuthWrapper = (): ReactElement => {
@@ -49,8 +45,8 @@ const AuthWrapper = (): ReactElement => {
             },
           ]}
         />
-        {currentUser && <ToDoListWrapper />}
         <AmplifySignIn slot="sign-in" usernameAlias="email" />
+        {currentUser && <ToDoListWrapper />}
       </AmplifyAuthenticator>
     </Suspense>
   );
