@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CognitoUserInterface } from '@aws-amplify/ui-components';
-import { RootState } from '../store';
+import { AppDispatch, RootState } from '../store';
+import { Auth } from 'aws-amplify';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -16,6 +17,17 @@ export const userSlice = createSlice({
 });
 
 export const { signIn, signOut } = userSlice.actions;
+
+export const signOutAction = () => async (
+  dispatch: AppDispatch,
+): Promise<void> => {
+  try {
+    await Auth.signOut();
+    dispatch(signOut());
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const selectCurrentUser = (
   state: RootState,

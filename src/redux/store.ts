@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import logger from 'redux-logger';
 import toDosReducer from './toDo/toDoSlice';
 import userReducer from './user/userSlice';
+import themeReducer from './theme/themeSlice';
 
 const middlewares: Middleware[] = [];
 
@@ -14,6 +15,7 @@ export const store = configureStore({
   reducer: {
     todos: toDosReducer,
     user: userReducer,
+    theme: themeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(...middlewares),

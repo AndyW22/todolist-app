@@ -1,4 +1,3 @@
-import { createMuiTheme } from '@material-ui/core';
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
@@ -9,17 +8,12 @@ export default createGlobalStyle`
     --amplify-primary-color: rgba(0, 131, 253, 1);
     --amplify-primary-shade: rgba(0, 131, 253, 1);
     --amplify-primary-tint: rgba(0, 131, 253, 1);
+     background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    transition: all 0.50s linear;
   }
 
   * {
     box-sizing: border-box;
     }
 `;
-
-export const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#0083fd',
-    },
-  },
-});

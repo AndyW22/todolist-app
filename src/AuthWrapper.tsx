@@ -1,4 +1,4 @@
-import React, { ReactElement, Suspense, useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './redux/store';
 import {
   onAuthUIStateChange,
@@ -11,10 +11,12 @@ import {
   AmplifySignIn,
   AmplifySignUp,
 } from '@aws-amplify/ui-react';
-import { Spinner } from './Styles';
-const ToDoListWrapper = React.lazy(() => import('./todo/ToDoListWrapper'));
 
-const AuthWrapper = (): ReactElement => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const AuthWrapper = ({ children }: Props): ReactElement => {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector(selectCurrentUser);
 
@@ -27,7 +29,6 @@ const AuthWrapper = (): ReactElement => {
   }, []);
 
   return (
-    <Suspense fallback={<Spinner />}>
       <AmplifyAuthenticator usernameAlias="email">
         <AmplifySignUp
           slot="sign-up"
@@ -48,9 +49,8 @@ const AuthWrapper = (): ReactElement => {
           ]}
         />
         <AmplifySignIn slot="sign-in" usernameAlias="email" />
-        {currentUser && <ToDoListWrapper />}
+        {currentUser && children}
       </AmplifyAuthenticator>
-    </Suspense>
   );
 };
 

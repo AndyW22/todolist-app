@@ -1,5 +1,6 @@
-import { CircularProgress } from '@material-ui/core';
 import styled from 'styled-components';
+import { CircularProgress } from '@material-ui/core';
+import DarkModeToggle from 'react-dark-mode-toggle';
 
 export const OptionsContainer = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ export const OptionsContainer = styled.div`
 export const HeaderContainer = styled.div`
   display: flex;
   padding: 15px;
-  background-color: #ddd;
+  background-color: ${({ theme }) => theme.containerbackground};
   font-size: 60px;
   font-weight: bold;
   justify-content: space-between;
@@ -27,9 +28,12 @@ export const Spinner = styled(CircularProgress)`
   left: 50%;
 `;
 
+export const Toggler = styled(DarkModeToggle)`
+  margin: 0 10px;
+`;
+
 export const Text = styled.h1`
   font-size: 20px;
-  margin: 0 25px;
   font-weight: 300;
 `;
 
@@ -50,7 +54,7 @@ export const SignOutContainer = styled.div`
 
 export const Input = styled.input`
   border: none;
-  background-color: #ddd;
+  background-color: ${({ theme }) => theme.containerbackground};
   margin-bottom: 10px;
   padding: 8px;
   width: 100%;
@@ -73,7 +77,7 @@ export const ToDoDescription = styled.p`
 export const ToDoListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #ddd;
+  background-color: ${({ theme }) => theme.containerbackground};
   border-radius: 5px;
   margin: 15px 0;
 `;

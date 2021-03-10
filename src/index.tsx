@@ -5,18 +5,12 @@ import Amplify from 'aws-amplify';
 import awsExports from './aws-exports';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import GlobalStyle, { theme } from './globalStyles';
-import { MuiThemeProvider } from '@material-ui/core';
-
 Amplify.configure(awsExports);
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <GlobalStyle />
-      <MuiThemeProvider theme={theme}>
-        <App />
-      </MuiThemeProvider>
+      <App />
     </React.StrictMode>
   </Provider>,
   document.getElementById('root'),
