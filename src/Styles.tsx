@@ -1,6 +1,3 @@
-import {
-  AmplifySignOut,
-} from '@aws-amplify/ui-react';
 import { CircularProgress } from '@material-ui/core';
 import styled from 'styled-components';
 
@@ -28,10 +25,6 @@ export const Spinner = styled(CircularProgress)`
   position: absolute;
   top: 50%;
   left: 50%;
-`;
-
-export const SignOut = styled(AmplifySignOut)`
-  transform: translateY(-5px);
 `;
 
 export const Text = styled.h1`

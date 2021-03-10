@@ -1,10 +1,23 @@
 import React, { ReactElement } from 'react';
-import { useAppSelector } from './redux/store';
-import { selectCurrentUser } from './redux/user/userSlice';
-import { HeaderContainer, OptionsContainer, SignOut, Text } from './Styles';
+import { useAppDispatch, useAppSelector } from './redux/store';
+import { Auth } from 'aws-amplify';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { selectCurrentUser, signOut } from './redux/user/userSlice';
+import { HeaderContainer, OptionsContainer, Text } from './Styles';
+import { Button } from '@material-ui/core';
 
 const Header = (): ReactElement => {
   const currentUser = useAppSelector(selectCurrentUser);
+  const dispatch = useAppDispatch();
+
+  const signOutButton = async () => {
+    try {
+      await Auth.signOut();
+      dispatch(signOut());
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <HeaderContainer>
@@ -15,7 +28,14 @@ const Header = (): ReactElement => {
             <Text>
               Signed in as <strong>{currentUser.email}</strong>
             </Text>
-            <SignOut />
+            <Button
+              variant="contained"
+              color="primary"
+              endIcon={<ExitToAppIcon />}
+              onClick={signOutButton}
+            >
+              Sign Out
+            </Button>
           </>
         ) : (
           <Text>Not currently signed in</Text>

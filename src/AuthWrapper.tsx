@@ -5,9 +5,13 @@ import {
   AuthState,
   CognitoUserInterface,
 } from '@aws-amplify/ui-components';
-import { selectCurrentUser, signIn, signOut } from './redux/user/userSlice';
-import { AmplifyAuthenticator, AmplifySignIn, AmplifySignUp } from '@aws-amplify/ui-react';
-import {  Spinner } from './Styles';
+import { selectCurrentUser, signIn } from './redux/user/userSlice';
+import {
+  AmplifyAuthenticator,
+  AmplifySignIn,
+  AmplifySignUp,
+} from '@aws-amplify/ui-react';
+import { Spinner } from './Styles';
 const ToDoListWrapper = React.lazy(() => import('./todo/ToDoListWrapper'));
 
 const AuthWrapper = (): ReactElement => {
@@ -18,8 +22,6 @@ const AuthWrapper = (): ReactElement => {
     onAuthUIStateChange((nextAuthState, authData): void => {
       if (nextAuthState === AuthState.SignedIn) {
         dispatch(signIn((authData as CognitoUserInterface).attributes));
-      } else if (nextAuthState === AuthState.SignedOut) {
-        dispatch(signOut());
       }
     });
   }, []);
