@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Todo } from '../API';
 import { RemoveToDo } from './RemoveToDo';
-import { ToDoDescription, ToDoListContainer, ToDoName } from '../Styles';
+import { ToDoDescription, ToDoListContainer, ToDoName } from '../styles/Styles';
 
 interface ToDoItemProps {
   todo: Todo;

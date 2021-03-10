@@ -1,9 +1,8 @@
 import Amplify from 'aws-amplify';
 import React, { lazy, ReactElement, Suspense } from 'react';
 import awsExports from './aws-exports';
-import { GitHubLink } from './GitHubLink';
 import Header from './Header';
-import { Spinner } from './Styles';
+import { Spinner } from './styles/Styles';
 import { ThemeWrapper } from './ThemeWrapper';
 const ToDoListWrapper = React.lazy(() => import('./todo/ToDoListWrapper'));
 const AuthWrapper = lazy(() => import('./AuthWrapper'));
@@ -16,7 +15,6 @@ export const App = (): ReactElement => {
     <Suspense fallback={<Spinner />}>
       <ThemeWrapper>
         <Header />
-        <GitHubLink />
         <AuthWrapper>
           <ToDoListWrapper />
         </AuthWrapper>

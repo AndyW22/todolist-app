@@ -29,7 +29,7 @@ export const Spinner = styled(CircularProgress)`
 `;
 
 export const Toggler = styled(DarkModeToggle)`
-  margin: 0 10px;
+  margin: 0 15px;
 `;
 
 export const Text = styled.h1`
@@ -57,6 +57,7 @@ export const Input = styled.input`
   background-color: ${({ theme }) => theme.containerbackground};
   margin-bottom: 10px;
   padding: 8px;
+  color: ${({ theme }) => theme.text};
   width: 100%;
   border-radius: 5px;
   font-size: 18px;

@@ -2,7 +2,7 @@ import { Box, Button, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React, { ReactElement, useState } from 'react';
 import { useAppDispatch } from '../redux/store';
-import { Input } from '../Styles';
+import { Input } from '../styles/Styles';
 import { addToDo } from '../redux/toDo/toDoThunks';
 import { CreateTodoInput } from '../API';
 

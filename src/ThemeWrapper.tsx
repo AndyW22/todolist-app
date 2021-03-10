@@ -1,10 +1,10 @@
 import { MuiThemeProvider } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyles from './globalStyles';
+import GlobalStyles from './styles/globalStyles';
 import { useAppSelector } from './redux/store';
 import { selectTheme } from './redux/theme/themeSlice';
-import { darkTheme, lightTheme, materialUI } from './themes';
+import { darkTheme, lightTheme, materialUI } from './styles/themes';
 
 interface Props {
   children: React.ReactNode;
