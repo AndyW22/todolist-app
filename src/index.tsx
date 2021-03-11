@@ -4,14 +4,18 @@ import App from './App';
 import Amplify from 'aws-amplify';
 import awsExports from './aws-exports';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import store, {persistor} from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Spinner } from './styles/Styles';
 Amplify.configure(awsExports);
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <PersistGate loading={<Spinner />} persistor={persistor}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </PersistGate>
   </Provider>,
   document.getElementById('root'),
 );
