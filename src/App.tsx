@@ -9,18 +9,15 @@ const AuthWrapper = lazy(() => import('./AuthWrapper'));
 
 Amplify.configure(awsExports);
 
-export const App = (): ReactElement => {
-
-  return (
-    <Suspense fallback={<Spinner />}>
-      <ThemeWrapper>
-        <Header />
-        <AuthWrapper>
-          <ToDoListWrapper />
-        </AuthWrapper>
-      </ThemeWrapper>
-    </Suspense>
-  );
-};
+export const App = (): ReactElement => (
+  <Suspense fallback={<Spinner />}>
+    <ThemeWrapper>
+      <Header />
+      <AuthWrapper>
+        <ToDoListWrapper />
+      </AuthWrapper>
+    </ThemeWrapper>
+  </Suspense>
+);
 
 export default App;

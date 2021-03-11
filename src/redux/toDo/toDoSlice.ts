@@ -12,11 +12,20 @@ export const toDoSlice = createSlice({
     builder.addCase(fetchToDos.fulfilled, (state, action) => {
       return action.payload?.items as Todo[];
     });
+    builder.addCase(fetchToDos.rejected, () => {
+      alert('Error fetching ToDos, please try logging out and back in.');
+    });
     builder.addCase(addToDo.fulfilled, (state, action) => {
       state.push({ ...action.payload.data?.createTodo } as Todo);
     });
+    builder.addCase(addToDo.rejected, () => {
+      alert('Error adding ToDo, please try again.');
+    });
     builder.addCase(removeToDo.fulfilled, (state, action) => {
       state.splice(action.payload, 1);
+    });
+    builder.addCase(removeToDo.rejected, () => {
+      alert('Error removing ToDo, please try again.');
     });
     builder.addCase(userSlice.actions.signOut, () => {
       return [];
