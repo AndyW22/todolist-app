@@ -10,7 +10,7 @@ export default createGlobalStyle`
     --amplify-primary-tint: rgba(0, 131, 253, 1);
     background: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
-    transition: all 0.50s linear;
+    transition: all 0.25s linear;
   }
 
   * {

@@ -16,9 +16,10 @@ export const HeaderContainer = styled.div`
   font-weight: bold;
   justify-content: space-between;
 
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1100px) {
     font-size: 30px;
     align-items: center;
+    min-width: 700px;
   }
 `;
 
@@ -30,6 +31,7 @@ export const Spinner = styled(CircularProgress)`
 
 export const Toggler = styled(DarkModeToggle)`
   margin: 0 15px;
+  min-width: 60px;
 `;
 
 export const Text = styled.h1`
