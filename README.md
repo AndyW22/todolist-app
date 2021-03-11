@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# Full stack ToDo List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live version](https://main.dryxabv9qc6ey.amplifyapp.com)
 
-## Available Scripts
+Full stack ToDo List made with the following:
 
-In the project directory, you can run:
+- React with TypeScript
+- Redux with Redux Toolkit + persist
+- GraphQL API
+- AWS Amplify, AppSync, Cognito, DynamoDB
+- Styled Components with dark mode toggler
 
-### `yarn start`
+ToDos are stored on a DynamoDB table with Cognito user pools authorization.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app has user authentication with email verification where each user has their own unique ToDo list which only they can access.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Setup your own GraphQL API & DynamoDB table with Amplify
 
-### `yarn test`
+_This project is eligible for AWS Free tier_
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To have your own ToDo list database, first install AWS Amplify CLI by following the instructions [here](https://docs.amplify.aws/cli/start/install).
 
-### `yarn build`
+Once configured, run the following command and select GraphQL API where applicable:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`amplify init`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- if prompted to change node js version, select no as this will cause a bug with the cloudformation template
+- You don't need to configure advanced options.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This should initialize amplify and add the `aws-exports.js` file.
 
-### `yarn eject`
+Since the GraphQL API schema and authentication has already been configured, you only need to run:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`amplify push`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+to push all of the changes to the cloud.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You can view the schema in amplify > backend > api > todolist > schema.graphql. This uses @auth model to allow access depending on the user.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Finally, run
 
-## Learn More
+`yarn install` or `npm install`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+and
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`yarn start` or `npm start`
+
+## Troubleshooting
+
+To check everything is working correctly, there should be no error 400s in the console on page load. If there is, it means there is no cognito user pool on AWS for your application or, auth hasn't been initialized. To check, go to your application on AWS Amplify, and initialize the admin UI backend. This will display your authentication status.
+
+Try and create an account. If you get an error saying the user pool does not exist, run
+
+`amplify pull`
+
+and check that your team-provider-info.json is using the same backend environment as on the console.
+
+### Verification Email
+
+If you don't get a verification email when signing up, go to Cogntio on the AWS console, select the user pool, then select MFA and verifications. Change the attribute to verify from phone to email.
+
+## Add hosting
+
+Optionally you can add hosting so the website is live, you can do this with `amplify add hosting` and `amplify publish`. Alterinatively, go to the application on the AWS Amplify section of the console and add continious deployment for the frontend environment
