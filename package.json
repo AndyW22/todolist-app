@@ -22,9 +22,6 @@
     "@typescript-eslint/parser": "^4.15.1",
     "aws-amplify": "^3.3.19",
     "aws-amplify-react": "^4.2.25",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-react": "^7.22.0",
     "react": "^17.0.1",
     "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "^17.0.1",
@@ -41,6 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -61,5 +59,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-snap": "^1.23.0",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-react": "^7.22.0"
+  },
+  "reactSnap": {
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   }
 }
