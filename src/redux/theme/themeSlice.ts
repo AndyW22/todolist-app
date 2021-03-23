@@ -3,7 +3,7 @@ import { RootState } from '../store';
 
 export const themeSlice = createSlice({
   name: 'theme',
-  initialState: false,
+  initialState: true,
   reducers: {
     toggleDarkMode: (state) => {
       if (!state) {
