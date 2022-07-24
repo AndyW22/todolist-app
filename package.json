@@ -1,6 +1,8 @@
 {
   "name": "todolist",
   "version": "0.1.0",
+  "author": "Andy",
+  "license" : "MIT",
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^1.0.1",
