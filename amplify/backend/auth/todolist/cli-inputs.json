@@ -1,61 +1,62 @@
 {
+  "version": "1",
+  "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "todolic0793bae",
     "userPoolName": "todolist",
     "autoVerifiedAttributes": [
-        "phone_number"
+      "phone_number"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
-        "SMS Text Message"
+      "SMS Text Message"
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
-    "smsVerificationMessage": "Forgot password code: {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [
-        "Requires Lowercase",
-        "Requires Numbers",
-        "Requires Symbols",
-        "Requires Uppercase"
-    ],
+    "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+      "email"
     ],
+    "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
     "userpoolClientLambdaRole": "todolic0793bae_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "c0793bae",
-    "resourceName": "todolist",
     "authSelections": "identityPoolAndUserPool",
+    "resourceName": "todolist",
+    "serviceName": "Cognito",
+    "useDefault": "default",
+    "sharedId": "c0793bae",
+    "userPoolGroupList": [],
+    "userPoolGroups": false,
+    "usernameAttributes": [
+      "email"
+    ],
+    "usernameCaseSensitive": false,
+    "adminQueries": false,
     "authRoleArn": {
-        "Fn::GetAtt": [
-            "AuthRole",
-            "Arn"
-        ]
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
     },
     "unauthRoleArn": {
-        "Fn::GetAtt": [
-            "UnauthRole",
-            "Arn"
-        ]
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
     },
-    "serviceName": "Cognito",
-    "usernameAttributes": [
-        "email"
-    ],
-    "useDefault": "manual",
-    "userPoolGroups": false,
-    "userPoolGroupList": [],
-    "adminQueries": false,
-    "thirdPartyAuth": false,
-    "authProviders": [],
-    "usernameCaseSensitive": false,
-    "dependsOn": []
+    "breakCircularDependency": false,
+    "useEnabledMfas": false,
+    "dependsOn": [],
+    "hostedUI": false,
+    "authProviders": []
+  }
 }
