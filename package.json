@@ -2,7 +2,7 @@
   "name": "todolist",
   "version": "0.1.0",
   "author": "Andy",
-  "license" : "MIT",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^1.0.1",
@@ -14,8 +14,8 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
     "@types/react-redux": "^7.1.16",
     "@types/redux-logger": "^3.0.8",
     "@types/redux-persist": "^4.3.1",
@@ -24,9 +24,9 @@
     "@typescript-eslint/parser": "^4.15.1",
     "aws-amplify": "^3.3.19",
     "aws-amplify-react": "^4.2.25",
-    "react": "^17.0.1",
+    "react": "17.0.0",
     "react-dark-mode-toggle": "^0.2.0",
-    "react-dom": "^17.0.1",
+    "react-dom": "17.0.0",
     "react-redux": "^7.2.2",
     "react-scripts": "4.0.2",
     "redux": "^4.0.5",
@@ -63,12 +63,18 @@
     ]
   },
   "devDependencies": {
-    "react-snap": "^1.23.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-react": "^7.22.0"
+    "eslint-plugin-react": "^7.22.0",
+    "react-snap": "^1.23.0"
   },
   "reactSnap": {
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
-  }
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  },
+  "resolutions": {
+    "@types/react": "17.0.38"
+    }
 }

@@ -58,11 +58,11 @@ export type ModelSizeInput = {
 
 export type Todo = {
   __typename: "Todo",
-  id?: string,
-  name?: string,
+  id: string,
+  name: string,
   description?: string | null,
-  createdAt?: string,
-  updatedAt?: string,
+  createdAt: string,
+  updatedAt: string,
   owner?: string | null,
 };
 
@@ -73,7 +73,7 @@ export type UpdateTodoInput = {
 };
 
 export type DeleteTodoInput = {
-  id?: string | null,
+  id: string,
 };
 
 export type ModelTodoFilterInput = {
@@ -103,12 +103,12 @@ export type ModelIDInput = {
 
 export type ModelTodoConnection = {
   __typename: "ModelTodoConnection",
-  items?:  Array<Todo | null > | null,
+  items:  Array<Todo | null >,
   nextToken?: string | null,
 };
 
 export type CreateTodoMutationVariables = {
-  input?: CreateTodoInput,
+  input: CreateTodoInput,
   condition?: ModelTodoConditionInput | null,
 };
 
@@ -125,7 +125,7 @@ export type CreateTodoMutation = {
 };
 
 export type UpdateTodoMutationVariables = {
-  input?: UpdateTodoInput,
+  input: UpdateTodoInput,
   condition?: ModelTodoConditionInput | null,
 };
 
@@ -142,7 +142,7 @@ export type UpdateTodoMutation = {
 };
 
 export type DeleteTodoMutationVariables = {
-  input?: DeleteTodoInput,
+  input: DeleteTodoInput,
   condition?: ModelTodoConditionInput | null,
 };
 
@@ -159,7 +159,7 @@ export type DeleteTodoMutation = {
 };
 
 export type GetTodoQueryVariables = {
-  id?: string,
+  id: string,
 };
 
 export type GetTodoQuery = {
@@ -183,7 +183,7 @@ export type ListTodosQueryVariables = {
 export type ListTodosQuery = {
   listTodos?:  {
     __typename: "ModelTodoConnection",
-    items?:  Array< {
+    items:  Array< {
       __typename: "Todo",
       id: string,
       name: string,
@@ -191,13 +191,13 @@ export type ListTodosQuery = {
       createdAt: string,
       updatedAt: string,
       owner?: string | null,
-    } | null > | null,
+    } | null >,
     nextToken?: string | null,
   } | null,
 };
 
 export type OnCreateTodoSubscriptionVariables = {
-  owner?: string,
+  owner: string,
 };
 
 export type OnCreateTodoSubscription = {
@@ -213,7 +213,7 @@ export type OnCreateTodoSubscription = {
 };
 
 export type OnUpdateTodoSubscriptionVariables = {
-  owner?: string,
+  owner: string,
 };
 
 export type OnUpdateTodoSubscription = {
@@ -229,7 +229,7 @@ export type OnUpdateTodoSubscription = {
 };
 
 export type OnDeleteTodoSubscriptionVariables = {
-  owner?: string,
+  owner: string,
 };
 
 export type OnDeleteTodoSubscription = {

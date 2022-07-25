@@ -23,6 +23,9 @@ import userReducer from './user/userSlice';
 
 const middlewares: Middleware[] = [];
 
+
+export type RootReducer = ReturnType<typeof reducers>;
+
 if (process.env.NODE_ENV === 'development') {
   middlewares.push(logger);
 }
@@ -38,7 +41,11 @@ const persistConfig = {
   storage,
   whitelist: ['theme'],
 };
-const persistedReducer = persistReducer(persistConfig, reducers);
+
+const persistedReducer = persistReducer(
+  persistConfig as any,
+  reducers,
+);
 
 const store = configureStore({
   reducer: persistedReducer,
