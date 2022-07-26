@@ -2,6 +2,8 @@
 
 [Live version](https://main.dryxabv9qc6ey.amplifyapp.com)
 
+//lucille app on : https://main.dl02cdancx9ca.amplifyapp.com/
+
 Full stack ToDo List made with the following:
 
 - React with TypeScript

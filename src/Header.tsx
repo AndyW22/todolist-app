@@ -36,6 +36,7 @@ const Header = (): ReactElement => {
           size={60}
         />
         <Box mr={2} display="flex" alignItems="center">
+
           <Button
             color="primary"
             variant="contained"
@@ -46,6 +47,18 @@ const Header = (): ReactElement => {
           >
             View on GitHub
           </Button>
+
+          <Button
+            color="primary"
+            variant="contained"
+            endIcon={<GitHub />}
+            onClick={() =>
+              window.open('https://www.merriam-webster.com/dictionary/button', '_blank')
+            }
+          >
+            Test_button
+          </Button>
+
         </Box>
         {currentUser && (
           <Button
