@@ -1,7 +1,0 @@
-type Todo
-  @model
-  @auth(rules: [{ allow: owner, operations: [create, read, update, delete] }]) {
-  id: ID!
-  name: String!
-  description: String
-}
