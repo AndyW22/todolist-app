@@ -1,3 +1,5 @@
+/* Add A Todo */
+
 import { Box, Button, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React, { ReactElement, useState } from 'react';
@@ -46,6 +48,11 @@ const AddToDoForm = (): ReactElement => {
           onChange={(event) => setInput('description', event.target.value)}
           value={formState.description as string}
           placeholder="Description"
+        />
+        <Input
+          onChange={(event) => setInput('extra_field', event.target.value)}
+          value={formState.description as string}
+          placeholder="extra_field_graphqlNotUpdatedYet"
         />
         <Box width={300} p={1}>
           <Button

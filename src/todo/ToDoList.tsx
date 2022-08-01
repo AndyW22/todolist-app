@@ -1,3 +1,5 @@
+/* list of open items */
+
 import React, { ReactElement, useEffect } from 'react';
 import { Todo } from '../API';
 import { useAppDispatch, useAppSelector } from '../redux/store';
@@ -15,6 +17,7 @@ export const ToDoList = (): ReactElement => {
 
   return (
     <>
+    
       <h1>Your Todos</h1>
       {todos.map((todo: Todo, index: number) => (
         <ToDoItem key={index} index={index} todo={todo} />
