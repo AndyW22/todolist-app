@@ -12,7 +12,7 @@ interface Props {
 
 export const ThemeWrapper = ({ children }: Props): ReactElement => {
   const theme = useAppSelector(selectTheme);
-  const themeMode = theme ? darkTheme : lightTheme;
+  const themeMode = theme ? lightTheme : darkTheme;
 
   return (
     <MuiThemeProvider theme={materialUI}>

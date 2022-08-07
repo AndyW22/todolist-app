@@ -4,9 +4,9 @@ import AddToDoForm from './AddToDoForm';
 import { ToDoList } from './ToDoList';
 
 const ToDoListWrapper = (): ReactElement => (
-  <Container>
-    <AddToDoForm />
+  <Container >
     <ToDoList />
+    <AddToDoForm />
   </Container>
 );
 

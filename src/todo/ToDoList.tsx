@@ -17,8 +17,7 @@ export const ToDoList = (): ReactElement => {
 
   return (
     <>
-    
-      <h1>Your Todos</h1>
+      <h1>Todo List</h1>
       {todos.map((todo: Todo, index: number) => (
         <ToDoItem key={index} index={index} todo={todo} />
       ))}

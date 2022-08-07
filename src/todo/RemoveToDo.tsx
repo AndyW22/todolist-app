@@ -1,5 +1,5 @@
 import { Box, Button, Grid } from '@material-ui/core';
-import CheckIcon from '@material-ui/icons/Check';
+import DeleteIcon from '@material-ui/icons/Delete';
 import React, { ReactElement } from 'react';
 import { useAppDispatch } from '../redux/store';
 import { removeToDo } from '../redux/toDo/toDoThunks';
@@ -13,19 +13,20 @@ export const RemoveToDo = ({ id, index }: RemoveToDoProps): ReactElement => {
   const dispatch = useAppDispatch();
 
   return (
-    <Grid container justify="center">
-      <Box width={150} p={1}>
+    <Grid container justify="flex-end">
+      <Box width={'auto'} p={1}>
         <Button
           fullWidth={true}
-          variant="contained"
+          variant="outlined"
           color="primary"
           onClick={() => {
             dispatch(removeToDo({ id, index }));
           }}
-          endIcon={<CheckIcon />}
+          endIcon={<DeleteIcon />}
         >
-          Complete
+          Delete
         </Button>
+
       </Box>
     </Grid>
   );
