@@ -24,11 +24,11 @@ export const NavigationTabs = () => {
             <Tab label='Helper' value='5' icon={<Help />}/>                      
           </TabList>
         </Box>
-        <TabPanel value='1'>This is Board</TabPanel>
-        <TabPanel value='2'>This is Task</TabPanel>
-        <TabPanel value='3'>This is List</TabPanel>
-        <TabPanel value='4'>This is Record</TabPanel>
-        <TabPanel value='5'>This is Helper</TabPanel>
+        <TabPanel value='1'>This is Board.</TabPanel>
+        <TabPanel value='2'>This is Task.</TabPanel>
+        <TabPanel value='3'>This is List.</TabPanel>
+        <TabPanel value='4'>This is Record. Probably it stores previous tasks?</TabPanel>
+        <TabPanel value='5'>This is Helper.</TabPanel>
       </TabContext>
     </Box>
   )
