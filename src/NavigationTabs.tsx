@@ -28,7 +28,7 @@ export const NavigationTabs = () => {
         <TabPanel value='2'>This is Task.</TabPanel>
         <TabPanel value='3'>This is List.</TabPanel>
         <TabPanel value='4'>This is Record. Probably it stores previous tasks?</TabPanel>
-        <TabPanel value='5'>This is Helper. Do we need this?</TabPanel>
+        <TabPanel value='5'>This is Helper. What kind of helper function do we need, clipper?</TabPanel>
       </TabContext>
     </Box>
   )
