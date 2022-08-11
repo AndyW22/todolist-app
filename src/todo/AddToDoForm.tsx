@@ -1,7 +1,7 @@
 /* Add A Todo */
 
 import { Box, Button, Grid } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import CreateIcon from '@material-ui/icons/Create';
 import React, { ReactElement, useState } from 'react';
 import { useAppDispatch } from '../redux/store';
 import { Input } from '../styles/Styles';
@@ -42,27 +42,24 @@ const AddToDoForm = (): ReactElement => {
         <Input
           onChange={(event) => setInput('name', event.target.value)}
           value={formState.name}
-          placeholder="Name"
+          placeholder="(Type your new todo)"
         />
+  {/* 
         <Input
           onChange={(event) => setInput('description', event.target.value)}
           value={formState.description as string}
           placeholder="Description"
         />
-        <Input
-          onChange={(event) => setInput('extra_field', event.target.value)}
-          value={formState.description as string}
-          placeholder="extra_field_graphqlNotUpdatedYet"
-        />
-        <Box width={300} p={1}>
+  */}
+        <Box width={'auto'} p={1} >
           <Button
-            fullWidth={true}
-            variant="contained"
+            fullWidth={false}
+            variant="outlined"
             color="primary"
             onClick={addTodo}
-            endIcon={<AddIcon />}
+            endIcon={<CreateIcon />}
           >
-            Create Todo
+            Create
           </Button>
         </Box>
       </Grid>

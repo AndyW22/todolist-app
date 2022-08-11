@@ -4,6 +4,9 @@ import awsExports from './aws-exports';
 import Header from './Header';
 import { Spinner } from './styles/Styles';
 import { ThemeWrapper } from './ThemeWrapper';
+
+import {NavigationTabs} from './NavigationTabs';
+
 const ToDoListWrapper = React.lazy(() => import('./todo/ToDoListWrapper'));
 const AuthWrapper = lazy(() => import('./AuthWrapper'));
 
@@ -13,6 +16,7 @@ export const App = (): ReactElement => (
   <Suspense fallback={<Spinner />}>
     <ThemeWrapper>
       <Header />
+      <NavigationTabs />
       <AuthWrapper>
         <ToDoListWrapper />
       </AuthWrapper>

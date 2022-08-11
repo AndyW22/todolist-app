@@ -14,7 +14,9 @@ export const ToDoItem = ({
 }: ToDoItemProps): ReactElement => (
   <ToDoListContainer key={id ? id : index}>
     <ToDoName>{name}</ToDoName>
+{/*
     <ToDoDescription>{description}</ToDoDescription>
+*/}
     <RemoveToDo id={id} key={index} index={index} />
   </ToDoListContainer>
 );

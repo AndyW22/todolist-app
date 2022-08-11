@@ -12,7 +12,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   padding: 15px;
   background-color: ${({ theme }) => theme.containerbackground};
-  font-size: 60px;
+  font-size: 30px;
   font-weight: bold;
   justify-content: space-between;
 
@@ -66,20 +66,21 @@ export const Input = styled.input`
 `;
 
 export const ToDoName = styled.p`
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
-  text-align: center;
-  margin: 10px 0;
+  text-align: left;   
+  margin: 5px 5px;
+  white-space: nowrap;
 `;
 
 export const ToDoDescription = styled.p`
-  margin: 10px 0;
+  margin: 5px 5px;
   text-align: center;
 `;
 
 export const ToDoListContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: ${({ theme }) => theme.containerbackground};
   border-radius: 5px;
   margin: 15px 0;

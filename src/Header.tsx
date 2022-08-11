@@ -19,7 +19,7 @@ const Header = (): ReactElement => {
 
   return (
     <HeaderContainer>
-      ToDo List
+      Lucille: ToDo App for Elderly
       <OptionsContainer>
         {currentUser ? (
           <>
